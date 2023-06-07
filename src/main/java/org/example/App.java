@@ -1,13 +1,15 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+
+import org.example.model.User;
+import org.example.repository.UserRepository;
+
+public class App {
+    public static void main( String[] args ) {
+
+        User user = new User("DEFEND",67);
+
+        UserRepository userRepository = new UserRepository();
+        userRepository.updateById( 7L,user );
     }
 }
