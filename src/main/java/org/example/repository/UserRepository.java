@@ -34,6 +34,7 @@ public class UserRepository {
             throw new RuntimeException( e );
         }
     }
+
     public void save(User user) {
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement( INSERT_INTO )
@@ -46,6 +47,7 @@ public class UserRepository {
             throw new RuntimeException( e );
         }
     }
+
     public User getById(Long id) {
         User user = null;
         try (Connection connection = DbConnection.getConnection();
@@ -64,6 +66,7 @@ public class UserRepository {
         }
         return user;
     }
+
     public void deleteById(Long id) {
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement( DELETE_BY_ID )
@@ -75,6 +78,7 @@ public class UserRepository {
             throw new RuntimeException( e );
         }
     }
+
     public List<User> findAll(){
         List<User> results = new ArrayList<>();
         try (Connection connection = DbConnection.getConnection();
@@ -93,6 +97,7 @@ public class UserRepository {
         }
         return results;
     }
+
     public void deleteAll() {
         try (Connection connection = DbConnection.getConnection();
              Statement statement = connection.createStatement();
@@ -103,6 +108,7 @@ public class UserRepository {
             throw new RuntimeException( e );
         }
     }
+
     public void updateById(Long id,User newUser){
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement( UPDATE_BY_ID )
